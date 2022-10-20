@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import ImageLight from '../assets/img/forgot-password-office.jpeg'
-import ImageDark from '../assets/img/forgot-password-office-dark.jpeg'
-import { Label, Input, Button } from '@windmill/react-ui'
+import ImageLight from "../assets/img/forgot-password-office.jpeg";
+import ImageDark from "../assets/img/forgot-password-office-dark.jpeg";
+import { Label, Input, Button } from "@windmill/react-ui";
 
-function ForgotPassword() {
+const ForgotPassword = () => {
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
       <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
@@ -43,7 +43,7 @@ function ForgotPassword() {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

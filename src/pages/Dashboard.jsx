@@ -14,17 +14,9 @@ import {
   TableCell,
   TableRow,
   TableFooter,
-  Avatar,
   Badge,
   Pagination,
 } from "@windmill/react-ui";
-
-import {
-  doughnutOptions,
-  lineOptions,
-  doughnutLegends,
-  lineLegends,
-} from "../utils/demo/chartsData";
 
 const Dashboard = () => {
   const [page, setPage] = useState(1);
@@ -103,7 +95,7 @@ const Dashboard = () => {
             {data.map((user, i) => (
               <TableRow key={i}>
                 <TableCell>
-                  <div className="flex items-center text-xl">
+                  <div className="flex items-center text-xs">
                     <div>
                       <p className="font-semibold">{user.name}</p>
                       <p className="text-xs text-gray-600 dark:text-gray-400">

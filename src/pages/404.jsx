@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { ForbiddenIcon } from "../icons";
 
-function Page404() {
+const Page404 = () => {
   return (
     <div className="flex flex-col items-center">
       <ForbiddenIcon
@@ -25,6 +25,6 @@ function Page404() {
       </p>
     </div>
   );
-}
+};
 
 export default Page404;

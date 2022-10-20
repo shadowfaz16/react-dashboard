@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function CTA() {
   return (
     <NavLink
-      className="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-blue-100 bg-blue-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-blue"
+      className="flex animate-pulse items-center justify-between p-4 mb-8 text-sm font-semibold text-blue-100 bg-blue-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-blue"
       to="/app/exchange"
     >
       <div className="flex items-center">

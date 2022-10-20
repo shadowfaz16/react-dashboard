@@ -103,7 +103,7 @@ const Dashboard = () => {
             {data.map((user, i) => (
               <TableRow key={i}>
                 <TableCell>
-                  <div className="flex items-center text-sm">
+                  <div className="flex items-center text-xl">
                     <div>
                       <p className="font-semibold">{user.name}</p>
                       <p className="text-xs text-gray-600 dark:text-gray-400">

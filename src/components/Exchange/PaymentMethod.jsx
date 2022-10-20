@@ -2,7 +2,7 @@ import React from "react";
 
 const PaymentMethod = () => {
   return (
-    <div className="flex flex-col justify-between md:flex-row">
+    <div className="flex flex-col justify-between md:flex-row md:space-x-5">
       <div className="flex items-start mb-3">
         <div className="flex h-5 items-center">
           <input

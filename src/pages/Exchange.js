@@ -7,7 +7,7 @@ const ExchangeDashboard = () => {
   return (
     <>
       <PageTitle>Exchange</PageTitle>
-      <CTA />
+      {/* <CTA /> */}
       <Exchange />
     </>
   );

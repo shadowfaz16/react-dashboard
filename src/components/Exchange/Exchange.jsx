@@ -5,7 +5,7 @@ import Swapp from "./Swapp";
 
 const Exchange = () => {
   return (
-    <section className="flex items-center">
+    <section className="flex items-center justify-center md:justify-start">
       <div className="rounded-lg">
         <div className="lg:flex lg:flex-wrap">
           <div>

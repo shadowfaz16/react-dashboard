@@ -1,14 +1,44 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
 import ImageLight from "../assets/img/login-office.jpeg";
 import ImageDark from "../assets/img/login-office-dark.jpeg";
-import { GithubIcon, TwitterIcon } from "../icons";
+//import { GithubIcon, TwitterIcon } from "../icons";
 import { Label, Input, Button } from "@windmill/react-ui";
+import { GlobalUserContext } from "../context/GlobalContext";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import app from "../services";
 
 const Login = () => {
+
+  const { userLogin } = useContext(GlobalUserContext);
+  const [user, setUser] = useState(false);
+
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (sesion) => {
+    if (sesion) {
+      setUser(true);      
+    } else {
+      setUser(false);      
+    }
+  });
+
+  const logOut = async () => {
+    await signOut(auth)
+  }  
+
+  const submit = (e)=>{
+    e.preventDefault();
+    const data = Array.from(new FormData(e.target))
+    const dataObj = Object.fromEntries(data)
+    userLogin(dataObj)
+  } 
+  
+
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-      <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+      {user === false ? (
+        <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
         <div className="flex flex-col overflow-y-auto md:flex-row">
           <div className="h-32 md:h-auto md:w-1/2">
             <img
@@ -47,9 +77,9 @@ const Login = () => {
                 />
               </Label>
 
-              <Button className="mt-4" block tag={Link} to="/app">
+              <button className="mt-4" onClick={submit}>
                 Log in
-              </Button>
+              </button>
 
               <hr className="my-8" />
 
@@ -82,6 +112,13 @@ const Login = () => {
           </main>
         </div>
       </div>
+      ) : (
+        <div>
+        <h1>Usuario logueado</h1>   
+        <button className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3 bg-gradient-to-r from-blue-600 to-blue-300" 
+        onClick={logOut}>Cerrar sesión</button>               
+      </div>
+    )}
     </div>
   );
 };
